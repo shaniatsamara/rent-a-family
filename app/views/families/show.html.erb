@@ -1,0 +1,16 @@
+<div class="container">
+  <h1><%= @family.title %></h1>
+  <h2><%= @family.price %></h2>
+  <h3>Located at: <%= @family.location %></h3>
+  <div class="display-members">
+    <ul>
+      <li>Adult Male: <%= @family.adult_male %></li>
+      <li>Adult Female: <%= @family.adult_female %></li>
+      <li>Child Male: <%= @family.child_male %></li>
+      <li>Child Female: <%= @family.child_female %></li>
+      <li>Senior Male: <%= @family.senior_male %></li>
+      <li>Senior Female: <%= @family.senior_female %></li>
+    </ul>
+  </div>
+  <p><%= @family.description %></p>
+</div>
