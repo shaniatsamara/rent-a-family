@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Create a new family</h1>
+  <div class="form-family">
+    <%= simple_form_for @family do |f| %>
+    <%= f.input :title %>
+    <%= f.input :race, collection: Family::RACE %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :adult_male %>
+    <%= f.input :adult_female %>
+    <%= f.input :child_male %>
+    <%= f.input :child_female %>
+    <%= f.input :senior_male %>
+    <%= f.input :senior_female %>
+    <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

@@ -13,4 +13,10 @@
     </ul>
   </div>
   <p><%= @family.description %></p>
+  <% if user_signed_in? %>
+    <div class="family-show-button">
+      <button><%= link_to "Edit this family", family_path(@family) %></button>
+      <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
+    </div>
+  <% end %>
 </div>

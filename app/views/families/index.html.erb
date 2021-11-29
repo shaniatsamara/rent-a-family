@@ -3,7 +3,7 @@
   <div class="cards">
     <% @families.each do |family| %>
       <div class="card">
-        <h2><%= family.title %></h2>
+        <h2><%= link_to family.title, family_path(family) %></h2>
         <div class="bottom-card">
           <p><%= family.description %></p>
           <p><%= family.price %></p>
