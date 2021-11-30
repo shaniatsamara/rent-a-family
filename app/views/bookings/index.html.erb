@@ -1,10 +1,10 @@
 <%= link_to "Back to dashboard", dashboard_path %>
 <h1>Booking History</h1>
 <% @past_bookings.each do |booking| %>
-<div class="booking-card">
-  <%= booking.id %>
-  <%= link_to booking.family.title, booking_path(booking) %>
-  <%= booking.start_date %>
-  <%= booking.end_date %>
-</div>
+  <div class="booking-card">
+    <%= booking.id %>
+    <%= link_to booking.family.title, booking_path(booking) %>
+    <%= booking.start_date %>
+    <%= booking.end_date %>
+  </div>
 <% end %>
