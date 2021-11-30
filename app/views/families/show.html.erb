@@ -13,7 +13,10 @@
       <li>Senior Male: <%= @family.senior_male %></li>
       <li>Senior Female: <%= @family.senior_female %></li>
     </ul>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @family.photo.key, height: 300, width: 300, crop: :fill %>')">
+    </div>
   </div>
+
   <p><%= @family.description %></p>
   <%# <% if user_signed_in? %>
     <div class="family-show-button">
