@@ -1,0 +1,10 @@
+<h1>Booking #<%= @booking.id %></h1>
+<h4>for: <%= @booking.family.title %></h4>
+<h4>by: <%= @booking.user.first_name @booking.user.last_name %></h4>
+<h3><%= @booking.status %></h3>
+<h2><%= @booking.start_date %></h2>
+<h2><%= @booking.end_date %></h2>
+<h4><%= @booking.price %></h4>
+<h5>Paid by: <%= @booking.payment_method %></h5>
+
+<%= link_to "Dashboard", dashboard_path %>

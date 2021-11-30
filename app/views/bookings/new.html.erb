@@ -1,0 +1,6 @@
+<%= simple_form_for [@family, @booking] do |f| %>
+<%= f.input :start_date %>
+<%= f.input :end_date %>
+<%= f.input :payment_method, collection: Booking::PAYMENT_METHODS %>
+<%= f.submit %>
+<% end %>
