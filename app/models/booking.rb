@@ -3,5 +3,5 @@ class Booking < ApplicationRecord
   belongs_to :family
 
   PAYMENT_METHODS = ["Cash", "Credit", "Debit", "Transfer"]
-  BOOKING = ["Reject", "Accept"]
+  STATUSES = ["Reject", "Accept", "Pending"]
 end
