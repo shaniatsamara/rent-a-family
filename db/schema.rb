@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_073816) do
     t.integer "total_price"
     t.date "start_date"
     t.date "end_date"
-    t.string "status", default: "false"
+    t.string "status", default: "Pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["family_id"], name: "index_bookings_on_family_id"

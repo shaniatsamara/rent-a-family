@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>This is the dashboard</h1>
+  <% if current_user.seller %>
+    <div class="booking-container">
+      <% @seller_bookings.each do |booking| %>
+        <div class="booking-card">
+          <p> # <%= booking.id %> </p>
+          <%= link_to booking.family.title, booking_path(booking) %>
+          <%= booking.start_date %>
+          <%= booking.end_date %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="booking-container bg-white">
+    <% @pending_bookings.each do |booking| %>
+      <div class="booking-card mb-5">
+        <%= booking.status %>
+        <%# yellow %>
+        <p> # <%= booking.id %> </p>
+        <%= link_to booking.family.title, booking_path(booking) %>
+        <%= booking.start_date %>
+        <%= booking.end_date %>
+      </div>
+    <% end %>
+  </div>
+  <div class="booking-container">
+    <% @current_bookings.each do |booking| %>
+      <div class="booking-card">
+        <%= booking.status  %>
+        <%# green %>
+        <p> # <%= booking.id %> </p>
+        <%= link_to booking.family.title, booking_path(booking) %>
+        <%= booking.start_date %>
+        <%= booking.end_date %>
+      </div>
+    <% end %>
+  </div>
+  <div class="booking-container">
+    <% @rejected_bookings.each do |booking| %>
+      <div class="booking-card">
+        <%= booking.status %>
+        <%# red %>
+        <p> # <%= booking.id %> </p>
+        <%= link_to booking.family.title, booking_path(booking) %>
+        <%= booking.start_date %>
+        <%= booking.end_date %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Booking History", bookings_path %>
+</div>
