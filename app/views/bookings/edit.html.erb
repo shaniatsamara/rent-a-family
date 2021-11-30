@@ -1,0 +1,7 @@
+<h1>Booking #<%= @booking.id %></h1>
+<h3>Request made by: <%= @booking.user.first_name %></h3>
+<h2>Would you like to accept this booking?</h2>
+<%= simple_form_for @booking do |f| %>
+<%= f.input :status, collection: Booking::STATUS  %>
+<%= f.submit %>
+<% end %>
