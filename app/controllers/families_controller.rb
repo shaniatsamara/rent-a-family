@@ -15,7 +15,7 @@ class FamiliesController < ApplicationController
     @family = Family.new(family_params)
     @family.user = current_user
     @family.save
-    # redirect_to family_path(@family)
+    redirect_to family_path(@family)
   end
 
   def edit
@@ -26,13 +26,13 @@ class FamiliesController < ApplicationController
     @family = Family.find(params[:id])
     @family.update(family_params)
 
-    # redirect_to family_path(@family)
+    redirect_to family_path(@family)
   end
 
   def destroy
     @family = Family.find(params[:id])
     @family.delete
-    # redirect_to families_path
+    redirect_to families_path
   end
 
   private
