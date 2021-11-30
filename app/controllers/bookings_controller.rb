@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+    @past_bookings = Booking.where("end_date < ?", Date.today )
+  end
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -17,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.total_price = total_price
     @booking.save
 
-    # redirect_to family_path(@family)
+    redirect_to dashboard_path
   end
 
   def edit
@@ -28,14 +32,14 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(update_params)
 
-    # redirect_to dashboard_path
+    redirect_to dashboard_path
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
 
-    # redirect_to families_path
+    redirect_to families_path
   end
 
   private
