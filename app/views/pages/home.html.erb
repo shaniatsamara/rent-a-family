@@ -6,13 +6,11 @@
     of all ages and ethnicities available for rental.</p>
     <%= link_to "See families", families_path, class:"btn btn-flat" %>
   </div>
-
+</div>
 <div>
-<%= @family.each do |family| %>
+  <% @families.each do |family| %>
       <div>
         <%= family.title %>
       </div>
-
-      </div>
-<% end %>
+  <% end %>
 </div>
