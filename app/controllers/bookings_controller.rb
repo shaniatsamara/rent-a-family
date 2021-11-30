@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @past_bookings = Booking.where("end_date < ?", Date.today )
+    @past_bookings = Booking.where("end_date < ?", Date.today)
   end
 
   def show
