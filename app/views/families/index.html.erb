@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>This is a list of all the families</h1>
+  <div class="cards">
+    <% @families.each do |family| %>
+      <div class="card">
+        <h2><%= link_to family.title, family_path(family) %></h2>
+        <div class="bottom-card">
+          <p><%= family.description %></p>
+          <p><%= family.price %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
