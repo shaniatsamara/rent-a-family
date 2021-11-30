@@ -1,3 +1,4 @@
+
 <h1>Booking #<%= @booking.id %></h1>
 <h4>for: <%= @booking.family.title %></h4>
 <h4>by: <%= @booking.user.first_name %> <%= @booking.user.last_name %></h4>
@@ -7,4 +8,16 @@
 <h4><%= @booking.total_price %></h4>
 <h5>Paid by: <%= @booking.payment_method %></h5>
 
-<%= link_to "Dashboard", dashboard_path %>
+<% if @booking.user == current_user && @booking.end_date <= Date.today && @booking.status == "Accept" %>
+  <%= link_to "Leave a review", new_booking_review_path(@booking) %>
+<% end %>
+
+<div class="review-container">
+  <h2>Reviews:</h2>
+  <% @booking.reviews.each do |review| %>
+    <div class="booking-card">
+      <p><%= review.rating %> stars </p>
+      <p><%= review.comment %></p>
+    </div>
+  <% end %>
+</div>
