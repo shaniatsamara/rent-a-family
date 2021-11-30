@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home index show]
 
   def home
-    #@families = Family.joins(:booking).where(review )
+    @families = Family.all.sort_by { |family| family.average_rating }.reverse.first(5)
   end
 
   def dashboard
@@ -12,5 +12,4 @@ class PagesController < ApplicationController
     @rejected_bookings = current_user.bookings.where(status: "Reject")
     # page to see all your bookings / profile of the person
   end
-
 end
