@@ -1,4 +1,38 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<%= link_to "See all the families", families_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "family_banner.jpg"%>);">
+  <div class="container">
+    <h1>Feeling <strong>lonely?</strong> Rent a <span id="family"></span></h1>
+    <p>We have mothers, fathers, brothers, sisters and cousins
+    <br>
+    of all ages and ethnicities available for rental.</p>
+    <%= link_to "See families", families_path, class:"btn btn-flat" %>
+  </div>
+</div>
+<div class="container">
+  <h1>This is a list of all the families</h1>
+<div class="cards">
+    <% @families.each do |family| %>
+      <div class="card">
+      <% if family.photo.attached?%>
+      <div class="card-family-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path family.photo.key, crop: :fill %>')">
+        </div>
+      <% else %>
+      <div class="card-family-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg')">
+        </div>
+      <% end %>
+        <h2><%= link_to family.title, family_path(family) %></h2>
+        <div class="bottom-card-description">
+          <p><%= family.description.truncate(100) %></p>
+        </div>
+        <div class="bottom-card">
+          <p>Price <%= family.price %> USD</p>
+          <p><%= family.ethnicity %></p>
+        </div>
+        <div class="bottom-card-location">
+          <p><%= family.location %></p>
+        </div>
+      </div>
+    <% end %>
+    <div>
+  </div>
+  <h3><%= link_to "List your own family", new_family_path %></h3>
+</div>

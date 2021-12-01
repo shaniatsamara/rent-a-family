@@ -2,9 +2,9 @@
 <h1>Booking History</h1>
 <% @past_bookings.each do |booking| %>
   <div class="booking-card">
-    <%= booking.id %>
-    <%= link_to booking.family.title, booking_path(booking) %>
-    <%= booking.start_date %>
-    <%= booking.end_date %>
+    <p> #<%= booking.id %> </p>
+    <p class="booking-title"><%= link_to booking.family.title, booking_path(booking) %></p>
+    <p class= "created"><%= booking.start_date %></p>
+    <p class= "ended"><%= booking.end_date %></p>
   </div>
 <% end %>
