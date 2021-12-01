@@ -4,29 +4,30 @@
   <h5><%= @family.ethnicity %> Family</h5>
   <h2><%= @family.price %></h2>
   <h3>Located at: <%= @family.location %></h3>
-  <div class="display-members">
-    <ul>
-      <li>Adult Male: <%= @family.adult_male %></li>
-      <li>Adult Female: <%= @family.adult_female %></li>
-      <li>Child Male: <%= @family.child_male %></li>
-      <li>Child Female: <%= @family.child_female %></li>
-      <li>Senior Male: <%= @family.senior_male %></li>
-      <li>Senior Female: <%= @family.senior_female %></li>
-    </ul>
-      <% if @family.photo.key == nil %>
-        <div></div>
-      <% else %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @family.photo.key, height: 300, width: 300, crop: :fill %>')">
-        </div>
-      <% end %>
-  </div>
+    <div class="display-members">
+      <ul>
+        <li>Adult Male: <%= @family.adult_male %></li>
+        <li>Adult Female: <%= @family.adult_female %></li>
+        <li>Child Male: <%= @family.child_male %></li>
+        <li>Child Female: <%= @family.child_female %></li>
+        <li>Senior Male: <%= @family.senior_male %></li>
+        <li>Senior Female: <%= @family.senior_female %></li>
+      </ul>
+        <% if @family.photo.key == nil %>
+          <div></div>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @family.photo.key, height: 300, width: 300, crop: :fill %>')">
+          </div>
+        <% end %>
+    </div>
 
-  <p><%= @family.description %></p>
-  <%# <% if user_signed_in? %>
+    <p><%= @family.description %></p>
+
     <div class="family-show-button">
       <button><%= link_to "See all families", families_path %></button>
-      <button><%= link_to "Edit this family", edit_family_path(@family) %></button>
-      <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
+      <% if current_user == @family.user %>
+        <button><%= link_to "Edit this family", edit_family_path(@family) %></button>
+        <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
+      <% end %>
     </div>
-  <%# <% end %>
 </div>
