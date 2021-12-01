@@ -14,7 +14,12 @@
 
   <body>
     <%= render 'shared/navbar' %>
-
-    <%= yield %>
+    <% if current_page?('/') %>
+      <%= yield %>
+    <% else %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
 </html>
