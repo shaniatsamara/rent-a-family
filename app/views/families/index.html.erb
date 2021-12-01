@@ -2,13 +2,15 @@
   <h1>This is a list of all the families</h1>
   <div class="cards">
     <% @families.each do |family| %>
-      <div class="card">
-        <h2><%= link_to family.title, family_path(family) %></h2>
-        <div class="bottom-card">
-          <p><%= family.description %></p>
-          <p><%= family.price %></p>
+      <%= link_to family_path(family) do %>
+        <div class="card">
+          <h2><%= family.title %></h2>
+          <div class="bottom-card">
+            <p><%= family.description %></p>
+            <p><%= family.price %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <h3><%= link_to "Create a family", new_family_path %></h3>

@@ -21,12 +21,11 @@
       <% end %>
   </div>
 
-  <p><%= @family.description %></p>
-  <%# <% if user_signed_in? %>
     <div class="family-show-button">
       <button><%= link_to "See all families", families_path %></button>
-      <button><%= link_to "Edit this family", edit_family_path(@family) %></button>
-      <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
+      <% if current_user == @family.user %>
+        <button><%= link_to "Edit this family", edit_family_path(@family) %></button>
+        <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
+      <% end %>
     </div>
-  <%# <% end %>
 </div>

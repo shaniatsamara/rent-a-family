@@ -8,13 +8,18 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
-
-    <%= yield %>
+    <% if current_page?('/') %>
+      <%= yield %>
+    <% else %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
 </html>

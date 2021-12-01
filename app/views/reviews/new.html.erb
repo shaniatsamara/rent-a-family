@@ -1,4 +1,4 @@
-<h1>Leave a review for <%= @booking.title %></h1>
+<h1>Leave a review for <%= @booking.family.title %></h1>
 <%= simple_form_for [@booking, @review] do |f| %>
 <%= f.input :comment %>
 <%= f.input :rating %>
