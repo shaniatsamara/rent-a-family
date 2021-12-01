@@ -32,6 +32,7 @@ h1.welcome {
   background-color: rgb(216, 216, 216);
   border-radius: 20px;
   padding: 20px;
+  display: flex;
 }
 
 .left-container {
@@ -57,6 +58,7 @@ h1.welcome {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  width: 600px;
 }
 
 .booking-title {
@@ -76,4 +78,12 @@ h1.welcome {
 
 .status {
   margin-right: 10px;
+}
+
+.fa-times {
+  color: black
+}
+
+.fa-check {
+  color: green;
 }
