@@ -25,6 +25,8 @@
       <% if current_user.seller %>
         <div class="booking-container">
           <h2 class="current-booking-title">Bookings made to you</h2>
+          <div class="booking-card">
+          </div>
           <% @current_seller_bookings.each do |booking| %>
             <div class="booking-card">
               <p class="<%= booking.status %> status"> <%= booking.status %></p>

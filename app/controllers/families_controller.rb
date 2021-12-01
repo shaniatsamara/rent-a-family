@@ -1,6 +1,11 @@
 class FamiliesController < ApplicationController
   def index
-    @families = Family.all
+    if params[:search].present?
+      @search = params[:search][:query]
+      @families = Family.where("title ILIKE ? OR ethnicity ILIKE ?", "%#{@search}%", "%#{@search}%")
+    else
+      @families = Family.all
+    end
   end
 
   def show
