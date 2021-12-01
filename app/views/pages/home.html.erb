@@ -1,4 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<%= link_to "See all the families", families_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "family_banner.jpg"%>);">
+  <div class="container">
+    <h1>Feeling <strong>lonely?</strong> Rent a <span id="family"></span></h1>
+    <p>We have mothers, fathers, brothers, sisters and cousins
+    <br>
+    of all ages and ethnicities available for rental.</p>
+    <%= link_to "See families", families_path, class:"btn btn-flat" %>
+  </div>
+</div>
+<div>
+  <% @families.each do |family| %>
+      <div>
+        <%= family.title %>
+      </div>
+  <% end %>
+</div>

@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:home, :index, :show]
+  skip_before_action :authenticate_user!, only: %i[home index show]
 
   def home
-    # landing page
+    @families = Family.all.sort_by { |family| family.average_rating }.reverse.first(5)
   end
 
   def dashboard

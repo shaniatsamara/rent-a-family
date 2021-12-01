@@ -22,10 +22,9 @@ User.destroy_all
   user.save!
 end
 
-
 10.times do
   family = Family.new(
-    race: Family::ETHNICITY.sample,
+    ethnicity: Family::ETHNICITY.sample,
     title: Faker::TvShows::FamilyGuy.character,
     description: Faker::TvShows::FamilyGuy.quote,
     location: Faker::Address.city,

@@ -3,7 +3,7 @@
   <div class="form-family">
     <%= simple_form_for @family do |f| %>
     <%= f.input :title %>
-    <%= f.input :race, collection: Family::ETHNICITY %>
+    <%= f.input :ethnicity, collection: Family::ETHNICITY %>
     <%= f.input :description %>
     <%= f.input :location %>
     <%= f.input :price %>
@@ -13,6 +13,7 @@
     <%= f.input :child_female %>
     <%= f.input :senior_male %>
     <%= f.input :senior_female %>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
     <% end %>
   </div>
