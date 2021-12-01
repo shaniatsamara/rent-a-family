@@ -9,6 +9,7 @@
 </div>
 <div class="container">
   <h1>This is a list of all the families</h1>
+  <h3><%= link_to "List your own family now!", new_family_path %></h3>
 <div class="cards">
     <% @families.each do |family| %>
       <%= link_to family_path(family) do %>
@@ -34,5 +35,4 @@
     <% end %>
     <div>
   </div>
-  <h3><%= link_to "List your own family", new_family_path %></h3>
 </div>
