@@ -2514,6 +2514,11 @@ dot-prop@^5.2.0:
   dependencies:
     is-obj "^2.0.0"
 
+dune@*:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/dune/-/dune-0.2.1.tgz#e70fc7b0802f16fcd7cd2b248926a3653eef07e2"
+  integrity sha1-5w/HsIAvFvzXzSskiSajZT7vB+I=
+
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.7.1.tgz#2a4df5317f6ccfd91f86d6fd25d8d8a103b88309"
@@ -2655,7 +2660,7 @@ eslint-scope@^4.0.3:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-esprima@^4.0.0:
+esprima@*, esprima@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
@@ -3005,6 +3010,11 @@ fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+
+fu@*:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/fu/-/fu-0.1.0.tgz#94e01db417ccc3b86b49a3cc03c319bf5d2acb3a"
+  integrity sha1-lOAdtBfMw7hrSaPMA8MZv10qyzo=
 
 function-bind@^1.1.1:
   version "1.1.1"
@@ -6436,6 +6446,11 @@ terser@^5.3.4:
     source-map "~0.7.2"
     source-map-support "~0.5.20"
 
+tg@*:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/tg/-/tg-0.0.7.tgz#940a94dedada05dff97b9f5b7ab4b21ff6f4f57c"
+  integrity sha1-lAqU3traBd/5e59berSyH/b09Xw=
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
@@ -6540,6 +6555,16 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typedjs@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/typedjs/-/typedjs-0.2.2.tgz#7502ccc9e533e285d30a8e292c2ef697e1670f0f"
+  integrity sha1-dQLMyeUz4oXTCo4pLC72l+FnDw8=
+  dependencies:
+    dune "*"
+    esprima "*"
+    fu "*"
+    tg "*"
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
