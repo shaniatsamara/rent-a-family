@@ -9,7 +9,8 @@ class FamiliesController < ApplicationController
     @markers = @families.geocoded.map do |family|
       {
         lat: family.latitude,
-        lng: family.longitude
+        lng: family.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { family: family })
       }
     end
   end
