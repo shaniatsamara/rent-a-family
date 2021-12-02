@@ -19,8 +19,12 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     @family.user = current_user
-    @family.save
-    redirect_to family_path(@family)
+    if @family.valid?
+      @family.save
+      redirect_to family_path(@family)
+    else
+      render 'new'
+    end
   end
 
   def edit

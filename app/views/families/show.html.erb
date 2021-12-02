@@ -1,6 +1,12 @@
 <div class="container">
+  <% if @family.photo.key == nil %>
+    <div></div>
+  <% else %>
+    <div class="family-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @family.photo.key, height: 300, width: 300, crop: :fill %>')">
+    </div>
+  <% end %>
   <% if current_user != @family.user %>
-    <h4><%= link_to "Book this family", new_family_booking_path(@family) %></h4>
+    <h4 class="book-this-family"><%= link_to "Book this family", new_family_booking_path(@family) %></h4>
   <% end %>
   <h1><%= @family.title %></h1>
   <h5><%= @family.ethnicity %> Family</h5>
@@ -15,19 +21,12 @@
       <li>Senior Male: <%= @family.senior_male %></li>
       <li>Senior Female: <%= @family.senior_female %></li>
     </ul>
-      <% if @family.photo.key == nil %>
-        <div></div>
-      <% else %>
-        <div class="family-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @family.photo.key, height: 300, width: 300, crop: :fill %>')">
-        </div>
-      <% end %>
   </div>
-
-    <div class="family-show-button">
-      <button><%= link_to "See all families", families_path %></button>
-      <% if current_user == @family.user %>
-        <button><%= link_to "Edit this family", edit_family_path(@family) %></button>
-        <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
-      <% end %>
-    </div>
+  <div class="family-show-button">
+    <button><%= link_to "See all families", families_path %></button>
+    <% if current_user == @family.user %>
+      <button><%= link_to "Edit this family", edit_family_path(@family) %></button>
+      <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
+    <% end %>
+  </div>
 </div>
