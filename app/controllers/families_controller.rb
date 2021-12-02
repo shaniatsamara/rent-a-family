@@ -6,6 +6,12 @@ class FamiliesController < ApplicationController
     else
       @families = Family.all
     end
+    @markers = @families.geocoded.map do |family|
+      {
+        lat: family.latitude,
+        lng: family.longitude
+      }
+    end
   end
 
   def show
@@ -21,6 +27,8 @@ class FamiliesController < ApplicationController
     @family.user = current_user
     if @family.valid?
       @family.save
+      current_user.seller = true
+      current_user.save
       redirect_to family_path(@family)
     else
       render 'new'
@@ -40,7 +48,7 @@ class FamiliesController < ApplicationController
 
   def destroy
     @family = Family.find(params[:id])
-    @family.delete
+    @family.destroy
     redirect_to families_path
   end
 

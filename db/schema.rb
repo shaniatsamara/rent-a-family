@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_090707) do
+ActiveRecord::Schema.define(version: 2021_12_02_082950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,18 +60,20 @@ ActiveRecord::Schema.define(version: 2021_11_30_090707) do
   create_table "families", force: :cascade do |t|
     t.string "ethnicity"
     t.integer "price"
-    t.integer "adult_male"
-    t.integer "adult_female"
-    t.integer "child_male"
-    t.integer "child_female"
-    t.integer "senior_male"
-    t.integer "senior_female"
+    t.integer "adult_male", default: 0
+    t.integer "adult_female", default: 0
+    t.integer "child_male", default: 0
+    t.integer "child_female", default: 0
+    t.integer "senior_male", default: 0
+    t.integer "senior_female", default: 0
     t.text "description"
     t.string "location"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_families_on_user_id"
   end
 
