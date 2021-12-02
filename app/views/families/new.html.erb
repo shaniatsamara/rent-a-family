@@ -7,12 +7,12 @@
     <%= f.input :description %>
     <%= f.input :location %>
     <%= f.input :price %>
-    <%= f.input :adult_male %>
-    <%= f.input :adult_female %>
-    <%= f.input :child_male %>
-    <%= f.input :child_female %>
-    <%= f.input :senior_male %>
-    <%= f.input :senior_female %>
+    <%= f.input :adult_male, input_html: { min: '0', step: 'any' } %>
+    <%= f.input :adult_female, input_html: { min: '0', step: 'any' } %>
+    <%= f.input :child_male, input_html: { min: '0', step: 'any' } %>
+    <%= f.input :child_female, input_html: { min: '0', step: 'any' } %>
+    <%= f.input :senior_male, input_html: { min: '0', step: 'any' } %>
+    <%= f.input :senior_female, input_html: { min: '0', step: 'any' } %>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
     <% end %>
