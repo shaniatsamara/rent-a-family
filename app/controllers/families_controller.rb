@@ -50,7 +50,7 @@ class FamiliesController < ApplicationController
 
   def destroy
     @family = Family.find(params[:id])
-    @family.delete
+    @family.destroy
     redirect_to families_path
   end
 
