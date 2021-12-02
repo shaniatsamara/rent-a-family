@@ -26,10 +26,14 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     @family.user = current_user
-    @family.save
-    current_user.seller = true
-    current_user.save
-    redirect_to family_path(@family)
+    if @family.valid?
+      @family.save
+      current_user.seller = true
+      current_user.save
+      redirect_to family_path(@family)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -45,7 +49,7 @@ class FamiliesController < ApplicationController
 
   def destroy
     @family = Family.find(params[:id])
-    @family.delete
+    @family.destroy
     redirect_to families_path
   end
 
