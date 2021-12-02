@@ -1,4 +1,6 @@
 class FamiliesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[new index show]
+
   def index
     if params[:search].present?
       @search = params[:search][:query]
@@ -26,13 +28,12 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     @family.user = current_user
-    if @family.valid?
-      @family.save
+    if @family.save
       current_user.seller = true
       current_user.save
       redirect_to family_path(@family)
     else
-      render 'new'
+      render :new
     end
   end
 
