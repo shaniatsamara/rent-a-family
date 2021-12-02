@@ -6,6 +6,12 @@ class FamiliesController < ApplicationController
     else
       @families = Family.all
     end
+    @markers = @families.geocoded.map do |family|
+      {
+        lat: family.latitude,
+        lng: family.longitude
+      }
+    end
   end
 
   def show
