@@ -20,7 +20,7 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-import { initTyped } from "./plugins/init_typed"
+// import { initTyped } from "./plugins/init_typed"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -28,5 +28,5 @@ import { initTyped } from "./plugins/init_typed"
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initTyped()
+  // initTyped()
 });
