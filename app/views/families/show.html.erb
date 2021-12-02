@@ -1,5 +1,7 @@
 <div class="container">
-  <h4><%= link_to "Book this family", new_family_booking_path(@family) %></h4>
+  <% if current_user != @family.user %>
+    <h4><%= link_to "Book this family", new_family_booking_path(@family) %></h4>
+  <% end %>
   <h1><%= @family.title %></h1>
   <h5><%= @family.ethnicity %> Family</h5>
   <h2><%= @family.price %></h2>

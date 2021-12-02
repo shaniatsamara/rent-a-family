@@ -19,9 +19,12 @@ class BookingsController < ApplicationController
     @booking.family = @family
     total_price = ((@booking.end_date - @booking.start_date) * @family.price)
     @booking.total_price = total_price
-    @booking.save
-
-    redirect_to dashboard_path
+    if @booking.valid?
+      @booking.save
+      redirect_to dashboard_path
+    else
+      render 'new'
+    end
   end
 
   def edit
