@@ -30,4 +30,16 @@
         <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
       <% end %>
     </div>
+
+  <div class="review-container">
+    <h2>Reviews:</h2>
+    <% @family.bookings.each do |booking|
+      booking.reviews.each do |review| %>
+        <div class="booking-card">
+          <p><%= review.rating %> stars </p>
+          <p><%= review.comment %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

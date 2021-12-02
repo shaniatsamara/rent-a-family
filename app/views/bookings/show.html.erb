@@ -12,12 +12,4 @@
   <%= link_to "Leave a review", new_booking_review_path(@booking) %>
 <% end %>
 
-<div class="review-container">
-  <h2>Reviews:</h2>
-  <% @booking.reviews.each do |review| %>
-    <div class="booking-card">
-      <p><%= review.rating %> stars </p>
-      <p><%= review.comment %></p>
-    </div>
-  <% end %>
-</div>
+

@@ -26,6 +26,8 @@ class FamiliesController < ApplicationController
     @family = Family.new(family_params)
     @family.user = current_user
     @family.save
+    current_user.seller = true
+    current_user.save
     redirect_to family_path(@family)
   end
 
