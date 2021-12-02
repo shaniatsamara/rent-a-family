@@ -23,7 +23,6 @@ import mapboxgl from 'mapbox-gl';
 
       if (markers.length > 0) {
         const bounds = new mapboxgl.LngLatBounds();
-
         map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
         markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
       }
