@@ -17,10 +17,10 @@
                 <p class="booking-title"><%= link_to booking.family.title, booking_path(booking) %></p>
                 <p class= "created"><%= booking.start_date %></p>
                 <p class= "ended"><%= booking.end_date %></p>
-                <%= link_to booking_path(booking, { booking: { status: "Accept" } }), method: :patch do %>
+                <%= link_to booking_path(booking, { booking: { status: "Accepted" } }), method: :patch do %>
                   <i class="fas fa-check"></i>
                 <% end %>
-                <%= link_to booking_path(booking, { booking: { status: "Reject" } }), method: :patch do %>
+                <%= link_to booking_path(booking, { booking: { status: "Rejected" } }), method: :patch do %>
                   <i class="fas fa-times"></i>
                 <% end %>
               </div>
