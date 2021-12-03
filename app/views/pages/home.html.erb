@@ -8,33 +8,32 @@
       <%= link_to "See families", families_path, class:"btn btn-flat" %>
     </div>
   </div>
-</div>
-<div class="container">
-  <h1>This is a list of all the families</h1>
-  <h3><%= link_to "List your own family now!", new_family_path %></h3>
-<div class="cards">
-    <% @families.each do |family| %>
-      <%= link_to family_path(family), class: "card-link-wrapper" do %>
-        <div class="card">
-          <% if family.photo.attached?%>
-            <div class="card-family-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path family.photo.key, crop: :fill %>')"></div>
-          <% else %>
-            <div class="card-family-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg')"></div>
-          <% end %>
-          <h2><%= family.title %></h2>
-          <div class="bottom-card-description">
-            <p><%= family.description.truncate(100) %></p>
-          </div>
-          <div class="bottom-card">
-            <p>$ <%= family.price %> /day</p>
-            <p><%= family.ethnicity %></p>
-          </div>
-          <div class="bottom-card-location">
-            <p><%= family.location %></p>
+  <div class="container">
+    <h1>This is a list of all the families</h1>
+    <h3><%= link_to "List your own family now!", new_family_path %></h3>
+    <div class="cards">
+      <% @families.each do |family| %>
+        <%= link_to family_path(family), class: "card-link-wrapper" do %>
+          <div class="card">
+            <% if family.photo.attached?%>
+              <div class="card-family-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path family.photo.key, crop: :fill %>')"></div>
+            <% else %>
+              <div class="card-family-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg')"></div>
+            <% end %>
+            <h2><%= family.title %></h2>
+            <div class="bottom-card-description">
+              <p><%= family.description.truncate(100) %></p>
+            </div>
+            <div class="bottom-card">
+              <p>$ <%= family.price %> /day</p>
+              <p><%= family.ethnicity %></p>
+            </div>
+            <div class="bottom-card-location">
+              <p><%= family.location %></p>
+            </div>
           </div>
         <% end %>
       <% end %>
-      </div>
     </div>
   </div>
 </div>
