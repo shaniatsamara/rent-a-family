@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
   has_many :reviews
 
   PAYMENT_METHODS = ["Cash", "Credit", "Debit", "Transfer"]
-  STATUSES = ["Reject", "Accept", "Pending"]
+  STATUSES = ["Rejected", "Accepted", "Pending"]
 
   validates :start_date, :end_date, :payment_method, presence: true
   validate :end_date_after_start_date, :different_owner
