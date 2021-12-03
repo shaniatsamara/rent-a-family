@@ -6,6 +6,7 @@ class Family < ApplicationRecord
 
   geocoded_by :location
 
+  validates :title, length: { maximum: 100, too_long: "100 characters is the maximum allowed" }
   validates :ethnicity, :price, :description, :title, :location, presence: true
   validates :adult_male, :adult_female, :child_male, :child_female, :senior_male, :senior_female, numericality: { greater_than_or_equal_to: 0 }
 

@@ -5,7 +5,7 @@
       <h5><%= @family.ethnicity %> Family</h5>
       <p> <i class="fas fa-heart"></i> <%= @family.average_rating %> | Listed by <%= @family.user.first_name %></p>
       <% if @family.photo.key == nil %>
-        <div></div>
+        <div><%= image_tag'genericfamily.jpg', alt: "generic family", class: "generic-family-photo" %></div>
       <% else %>
         <div class="family-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @family.photo.key, height: 300, width: 700, crop: :fill %>')">
         </div>
@@ -13,10 +13,11 @@
       <% if current_user != @family.user %>
         <h4 class="book-this-family"><%= link_to "Book this family", new_family_booking_path(@family), class:"btn btn-flat" %></h4>
       <% end %>
-      <div class="d-flex justify-content-end my-2">
+      <div class="d-flex justify-content-start my-2">
         <h5> 📍<%= @family.location %></h5>
         <h5 class="mr-4 mx-3">$<%= @family.price %> / day</h5>
       </div>
+      <p><%= @family.description %></p>
     </div>
     <div class="display-members">
       <ul>
@@ -45,8 +46,8 @@
     <% end %>
     <% @family.reviews.each do |review| %>
       <div class="booking-card">
-        <p><%= review.rating %> <i class="fas fa-heart"></i> </p>
         <p><%= review.comment %></p>
+        <p><i class="fas fa-heart"></i> <%= review.rating %> </p>
       </div>
     <% end %>
   </div>
