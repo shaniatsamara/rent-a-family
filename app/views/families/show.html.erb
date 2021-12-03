@@ -6,7 +6,7 @@
     </div>
   <% end %>
   <% if current_user != @family.user %>
-    <h4 class="book-this-family"><%= link_to "Book this family", new_family_booking_path(@family) %></h4>
+    <h4 class="book-this-family"><%= link_to "Book this family", new_family_booking_path(@family), class:"btn btn-flat" %></h4>
   <% end %>
   <h1><%= @family.title %></h1>
   <h5><%= @family.ethnicity %> Family</h5>
@@ -24,10 +24,10 @@
   </div>
 
   <div class="family-show-button">
-    <button><%= link_to "See all families", families_path %></button>
+    <%= link_to "See all families", families_path, class:"btn btn-flat" %>
     <% if current_user == @family.user %>
-      <button><%= link_to "Edit this family", edit_family_path(@family) %></button>
-      <button><%= link_to "Delete this family", family_path(@family), method: :delete %>
+      <%= link_to "Edit this family", edit_family_path(@family), class:"btn btn-flat" %>
+      <%= link_to "Delete this family", family_path(@family), method: :delete, class:"btn btn-flat" %>
     <% end %>
   </div>
 

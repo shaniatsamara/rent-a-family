@@ -1,8 +1,8 @@
-
+<div class="booking-show">
 <h1>Booking #<%= @booking.id %></h1>
-<h4>for: <%= @booking.family.title %></h4>
-<h4>by: <%= @booking.user.first_name %> <%= @booking.user.last_name %></h4>
-<h3><%= @booking.status %></h3>
+<h4>for: <strong><%= @booking.family.title %></strong></h4>
+<h4>by: <strong><%= @booking.user.first_name %> <%= @booking.user.last_name %></strong></h4>
+<h3 class="<%= @booking.status %>"><%= @booking.status %></h3>
 <h2><%= @booking.start_date %></h2>
 <h2><%= @booking.end_date %></h2>
 <h4><%= @booking.total_price %></h4>
@@ -11,3 +11,4 @@
 <% if @booking.reviews.empty? && @booking.user == current_user && @booking.end_date <= Date.today && @booking.status == "Accept" %>
   <%= link_to "Leave a review", new_booking_review_path(@booking) %>
 <% end %>
+</div>
