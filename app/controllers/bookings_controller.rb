@@ -17,9 +17,9 @@ class BookingsController < ApplicationController
     @family = Family.find(params[:family_id])
     @booking.user = current_user
     @booking.family = @family
-    total_price = ((@booking.end_date - @booking.start_date) * @family.price)
-    @booking.total_price = total_price
     if @booking.valid?
+      total_price = ((@booking.end_date - @booking.start_date) * @family.price)
+      @booking.total_price = total_price
       @booking.save
       redirect_to dashboard_path
     else
