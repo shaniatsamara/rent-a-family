@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @families = Family.all.sort_by { |family| family.average_rating }.reverse.first(5)
+    @families = Family.all.sort_by { |family| family.average_rating }.reverse.first(3)
   end
 
   def dashboard

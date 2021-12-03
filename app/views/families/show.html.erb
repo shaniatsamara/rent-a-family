@@ -1,28 +1,31 @@
-<div class="container">
+<div class="container mt-4">
   <div class="information">
     <div class="family-information">
+      <h1><%= @family.title %></h1>
+      <h5><%= @family.ethnicity %> Family</h5>
+      <p> <i class="fas fa-heart"></i> <%= @family.average_rating %> | Listed by <%= @family.user.first_name %></p>
       <% if @family.photo.key == nil %>
         <div></div>
       <% else %>
-        <div class="family-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @family.photo.key, height: 300, width: 300, crop: :fill %>')">
+        <div class="family-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @family.photo.key, height: 300, width: 700, crop: :fill %>')">
         </div>
       <% end %>
       <% if current_user != @family.user %>
         <h4 class="book-this-family"><%= link_to "Book this family", new_family_booking_path(@family), class:"btn btn-flat" %></h4>
       <% end %>
-      <h5><%= @family.ethnicity %> Family</h5>
-      <h1><%= @family.title %></h1>
-      <h2>$<%= @family.price %> / day</h2>
-      <h3>Location: <%= @family.location %></h3>
+      <div class="d-flex justify-content-end my-2">
+        <h5> 📍<%= @family.location %></h5>
+        <h5 class="mr-4 mx-3">$<%= @family.price %> / day</h5>
+      </div>
     </div>
     <div class="display-members">
       <ul>
-        <li><%= @family.adult_male %> Fathers </li>
-        <li><%= @family.adult_female %> Mothers </li>
-        <li><%= @family.child_male %> Sons </li>
-        <li><%= @family.child_female %> Daughters </li>
-        <li><%= @family.senior_male %> Grandfathers </li>
-        <li><%= @family.senior_female %> Grandmothers </li>
+        <li>👨 <%= @family.adult_male %> Fathers </li>
+        <li>👩 <%= @family.adult_female %> Mothers </li>
+        <li>👦 <%= @family.child_male %> Sons </li>
+        <li>👧 <%= @family.child_female %> Daughters </li>
+        <li>👴 <%= @family.senior_male %> Grandfathers </li>
+        <li>👵 <%= @family.senior_female %> Grandmothers </li>
       </ul>
     </div>
   </div>
@@ -36,13 +39,14 @@
 
   <div class="review-container">
     <h3>See what other homemakers have said:</h3>
-    <% @family.bookings.each do |booking| %>
-      <% booking.reviews.each do |review| %>
-        <div class="booking-card">
-          <p><%= review.rating %> <i class="fas fa-heart"></i> </p>
-          <p><%= review.comment %></p>
-        </div>
-      <% end %>
+    <% if @family.reviews.empty? %>
+      <p>There are no reviews yet.</p>
+    <% end %>
+    <% @family.reviews.each do |review| %>
+      <div class="booking-card">
+        <p><%= review.rating %> <i class="fas fa-heart"></i> </p>
+        <p><%= review.comment %></p>
+      </div>
     <% end %>
   </div>
 </div>
