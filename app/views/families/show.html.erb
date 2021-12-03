@@ -30,7 +30,8 @@
     <%= link_to "See all families", families_path, class:"btn btn-flat" %>
     <% if current_user == @family.user %>
       <%= link_to "Edit this family", edit_family_path(@family), class:"btn btn-flat" %>
-      <%= link_to "Delete this family", family_path(@family), method: :delete, class:"btn btn-flat" %>
+      <button id="sweet-alert-demo" class="btn btn-warning"> Delete this family </button>
+      <%= link_to "", family_path(@family), method: :delete, id: "delete-link", class: "hidden"%>
     <% end %>
   </div>
 
