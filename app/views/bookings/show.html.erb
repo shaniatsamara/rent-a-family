@@ -8,7 +8,7 @@
 <h4><%= @booking.total_price %></h4>
 <h5>Paid by: <%= @booking.payment_method %></h5>
 
-<% if @booking.reviews.empty? && @booking.user == current_user && @booking.end_date <= Date.today && @booking.status == "Accept" %>
+<% if @booking.reviews.empty? && @booking.user == current_user && @booking.end_date <= Date.today && @booking.status == "Accepted" %>
   <%= link_to "Leave a review", new_booking_review_path(@booking) %>
 <% end %>
 </div>

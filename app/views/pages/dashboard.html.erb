@@ -6,28 +6,56 @@
       <% if current_user.seller %>
         <div class="booking-container">
           <h2 class="current-booking-title">Notifications</h2>
-          <% @pending_seller_bookings.each do |booking| %>
+          <% if @pending_seller_bookings.empty? %>
             <div class="booking-card">
-              <p> #<%= booking.id %> </p>
-              <p class="booking-title"><%= link_to booking.family.title, booking_path(booking) %></p>
-              <p class= "created"><%= booking.start_date %></p>
-              <p class= "ended"><%= booking.end_date %></p>
-              <%= link_to booking_path(booking, { booking: { status: "Accept" } }), method: :patch do %>
-                <i class="fas fa-check"></i>
-              <% end %>
-              <%= link_to booking_path(booking, { booking: { status: "Reject" } }), method: :patch do %>
-                <i class="fas fa-times"></i>
-              <% end %>
+              <p>You have no notifications.</p>
             </div>
+          <% else %>
+            <% @pending_seller_bookings.each do |booking| %>
+              <div class="booking-card">
+                <p> #<%= booking.id %> </p>
+                <p class="booking-title"><%= link_to booking.family.title, booking_path(booking) %></p>
+                <p class= "created"><%= booking.start_date %></p>
+                <p class= "ended"><%= booking.end_date %></p>
+                <%= link_to booking_path(booking, { booking: { status: "Accepted" } }), method: :patch do %>
+                  <i class="fas fa-check"></i>
+                <% end %>
+                <%= link_to booking_path(booking, { booking: { status: "Rejected" } }), method: :patch do %>
+                  <i class="fas fa-times"></i>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>
       <% if current_user.seller %>
         <div class="booking-container">
           <h2 class="current-booking-title">Bookings made to you</h2>
+          <% if @current_seller_bookings.empty? %>
+            <div class="booking-card">
+              <p>You have no bookings yet!</p>
+            </div>
+          <% else %>
+            <% @current_seller_bookings.each do |booking| %>
+              <div class="booking-card">
+                <p class="<%= booking.status %> status"> <%= booking.status %></p>
+                <p> #<%= booking.id %> </p>
+                <p class="booking-title"><%= link_to booking.family.title, booking_path(booking) %></p>
+                <p class= "created"><%= booking.start_date %></p>
+                <p class= "ended"><%= booking.end_date %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="booking-container">
+        <h2 class="current-booking-title">Your current bookings</h2>
+        <% if @current_seller_bookings.empty? %>
           <div class="booking-card">
+            <p>You haven't made any bookings!</p>
           </div>
-          <% @current_seller_bookings.each do |booking| %>
+        <% else %>
+          <% @current_bookings.each do |booking| %>
             <div class="booking-card">
               <p class="<%= booking.status %> status"> <%= booking.status %></p>
               <p> #<%= booking.id %> </p>
@@ -36,24 +64,12 @@
               <p class= "ended"><%= booking.end_date %></p>
             </div>
           <% end %>
-        </div>
-      <% end %>
-      <div class="booking-container">
-        <h2 class="current-booking-title">Your current bookings</h2>
-        <% @current_bookings.each do |booking| %>
-          <div class="booking-card">
-            <p class="<%= booking.status %> status"> <%= booking.status %></p>
-            <p> #<%= booking.id %> </p>
-            <p class="booking-title"><%= link_to booking.family.title, booking_path(booking) %></p>
-            <p class= "created"><%= booking.start_date %></p>
-            <p class= "ended"><%= booking.end_date %></p>
-          </div>
         <% end %>
       </div>
     </div>
     <% if current_user.seller %>
       <div class="right-container">
-        <h2>All your listings</h2>
+        <h2>Your family</h2>
         <div class="cards-dashboard">
           <% @current_user_families.each do |family| %>
             <%= link_to family_path(family) do %>
