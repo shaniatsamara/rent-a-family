@@ -54,7 +54,7 @@
     <% if current_user.seller %>
       <div class="right-container">
         <h2>All your listings</h2>
-        <div class="cards">
+        <div class="cards-dashboard">
           <% @current_user_families.each do |family| %>
             <%= link_to family_path(family) do %>
               <div class="card">
