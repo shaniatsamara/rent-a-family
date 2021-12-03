@@ -25,16 +25,20 @@
       <% if current_user.seller %>
         <div class="booking-container">
           <h2 class="current-booking-title">Bookings made to you</h2>
-          <div class="booking-card">
-          </div>
-          <% @current_seller_bookings.each do |booking| %>
+          <% if @current_seller_bookings.nil? %>
             <div class="booking-card">
-              <p class="<%= booking.status %> status"> <%= booking.status %></p>
-              <p> #<%= booking.id %> </p>
-              <p class="booking-title"><%= link_to booking.family.title, booking_path(booking) %></p>
-              <p class= "created"><%= booking.start_date %></p>
-              <p class= "ended"><%= booking.end_date %></p>
+              <p>You have no bookings yet!</p>
             </div>
+          <% else %>
+            <% @current_seller_bookings.each do |booking| %>
+              <div class="booking-card">
+                <p class="<%= booking.status %> status"> <%= booking.status %></p>
+                <p> #<%= booking.id %> </p>
+                <p class="booking-title"><%= link_to booking.family.title, booking_path(booking) %></p>
+                <p class= "created"><%= booking.start_date %></p>
+                <p class= "ended"><%= booking.end_date %></p>
+              </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>
@@ -53,7 +57,7 @@
     </div>
     <% if current_user.seller %>
       <div class="right-container">
-        <h2>All your listings</h2>
+        <h2>Your family</h2>
         <div class="cards-dashboard">
           <% @current_user_families.each do |family| %>
             <%= link_to family_path(family) do %>
