@@ -9,3 +9,45 @@
     height: 50px;
   }
 }
+
+.booking-show {
+  margin-top: 20px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.booking-show h1 {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 16px;
+}
+.booking-show h2 {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 16px;
+}
+.booking-show h3 {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 16px;
+}
+
+.booking-show h4 {
+
+  font-size: 16px;
+  padding: 16px;
+}
+
+.booking-show h5 {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 16px;
+}
