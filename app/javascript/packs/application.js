@@ -23,6 +23,8 @@ import "bootstrap";
 
 import { initTyped } from "./plugins/init_typed";
 import { initMapbox } from "./plugins/init_mapbox";
+import { initSweetalert } from './plugins/init_sweetalert';
+
 
 
 // Internal imports, e.g:
@@ -34,4 +36,24 @@ document.addEventListener('turbolinks:load', () => {
 
   initTyped();
   initMapbox();
+  initSweetalert('#sweet-alert-demo', {
+    title: "Are you sure?",
+    text: "This action cannot be reversed",
+    icon: "warning",
+    dangerMode: true,
+    buttons: true
+  }, (value) => {
+    if (value) {
+      const link = document.querySelector('#delete-link');
+      swal("Poof! You deleted your family!", {
+        icon: "success",
+      }).then(() => {
+        setTimeout(() => {
+          link.click();
+        }, 1000);
+      });
+    } else {
+      swal("You didn't delete your family!");
+    }
+  });
 });
